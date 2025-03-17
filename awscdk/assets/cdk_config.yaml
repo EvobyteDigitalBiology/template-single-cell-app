@@ -1,0 +1,36 @@
+s3_bucket_bootstrap: # Add bootstrap bucket
+vpc_availbility_zones:
+  - eu-west-1a
+  - eu-west-1b
+vpc_cidr: '10.0.0.0/16'
+db_username: 
+db_name: 
+# Secret tcodebackend_django_secret_key
+django_secret_key_arn: # SECRETS MANAGER KEY
+# Secret AlCaseScrnaseq-serviceuserRW
+service_user_secret_key_arn: # SECRETS MANAGER KEY
+service_user_secret_key_name: # SECRETS MANAGER KEY
+
+service_user_healthcheck_secret_key_arn: # SECRETS MANAGER KEY
+service_user_healthcheck_secret_key_name: # SECRETS MANAGER KEY
+
+service_user_app_secret_key_arn: # SECRETS MANAGER KEY
+service_user_app_secret_key_name: # SECRETS MANAGER KEY NAME
+
+pipeline_data_bucket: al-case-scrnaseq-data
+
+fastq_registration_task_storage_gb: 110
+fastq_registration_input_bucket: al-case-scrnaseq-upload
+fastq_registration_output_prefix: fastq_dataset
+
+rawdata_processing_task_storage_gb: 200
+rawdata_processing_task_num_cpus: 16
+rawdata_processing_task_ram_gb: 32
+
+integration_task_ram_gb: 8
+integration_task_num_cpus: 4
+integration_task_storage_gb: 32
+
+ui_app_task_ram_gb: 4
+ui_app_task_num_cpus: 2
+ui_app_task_storage_gb: 32

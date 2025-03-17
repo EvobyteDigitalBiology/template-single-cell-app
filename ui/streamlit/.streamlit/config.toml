@@ -1,0 +1,71 @@
+[client]
+
+# Controls whether uncaught app exceptions and deprecation warnings
+# are displayed in the browser. By default, this is set to True and
+# Streamlit displays app exceptions and associated tracebacks, and
+# deprecation warnings, in the browser.
+
+# If set to False, deprecation warnings and full exception messages
+# will print to the console only. Exceptions will still display in the
+# browser with a generic error message. For now, the exception type and
+# traceback show in the browser also, but they will be removed in the
+# future.
+
+# Default: true
+showErrorDetails = true
+
+# Change the visibility of items in the toolbar, options menu,
+# and settings dialog (top right of the app).
+
+# Allowed values:
+# * "auto" : Show the developer options if the app is accessed through
+# localhost or through Streamlit Community Cloud as a developer.
+# Hide them otherwise.
+# * "developer" : Show the developer options.
+# * "viewer" : Hide the developer options.
+# * "minimal" : Show only options set externally (e.g. through
+# Streamlit Community Cloud) or through st.set_page_config.
+# If there are no options left, hide the menu.
+
+# Default: "auto"
+toolbarMode = "auto"
+
+# Controls whether the default sidebar page navigation in a multi-page app is displayed.
+
+# Default: true
+showSidebarNavigation = false
+
+[server]
+port=8501 # change port number. By default streamlit uses 8501 port
+headless=true # This will eliminate automatically open browser
+enableCORS=false 
+enableXsrfProtection=false 
+enableWebsocketCompression=false
+
+[browser] # This ip and port will show in command prompt
+serverAddress = "localhost" # Put your Local IP or Domain Name
+serverPort = 8501
+
+[runner]
+fastReruns = false
+
+[theme]
+
+# Primary accent for interactive elements
+primaryColor = '#3C87AC'
+
+# Background color for the main content area
+backgroundColor = '#FFFFFF'
+
+# Background color for sidebar and most interactive widgets
+# secondaryBackgroundColor = '#3C87AC'
+# secondaryBackgroundColor = '#FFFFFF'
+secondaryBackgroundColor = '#fafcfd'
+
+# Color used for almost all text
+textColor = '#2A4159'
+
+# Font family for all text in the app, except code blocks
+# Accepted values (serif | sans serif | monospace) 
+# Default: "sans serif"
+font = "sans serif"

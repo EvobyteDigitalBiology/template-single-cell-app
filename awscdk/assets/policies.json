@@ -1,0 +1,70 @@
+{
+    "task_execution_role_envfiles" : 
+    {
+        "Effect": "Allow",
+        "Action": [
+            "s3:Get*",
+            "s3:List*",
+            "s3:Describe*",
+            "s3-object-lambda:Get*",
+            "s3-object-lambda:List*"
+        ],
+        "Resource": [
+        ]
+    },
+    
+    "task_execution_role_getsecrets": 
+    {
+        "Effect": "Allow",
+        "Action": [
+            "secretsmanager:GetSecretValue"
+        ],
+        "Resource": [
+        ]
+    },
+
+    "task_role_s3_io" : 
+    {
+        "Effect": "Allow",
+        "Action": [
+            "s3:Get*",
+            "s3:List*",
+            "s3:Describe*",
+            "s3:Put*",
+            "s3-object-lambda:Get*",
+            "s3-object-lambda:List*",
+            "s3-object-lambda:PutObject"
+        ],
+        "Resource": [
+        ]
+    },
+
+    "task_role_lambda_run_ecs" :
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ecr:GetAuthorizationToken",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:BatchGetImage",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents",
+            "iam:PassRole",
+            "ecs:RunTask"
+             ],
+             "Resource": [
+             ]
+    },
+
+    "task_cloudwatch_logs" :
+    {
+        "Effect": "Allow",
+        "Action": [
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+            ],
+             "Resource": [
+                "arn:aws:logs:*:*:*"
+             ]
+    }
+}

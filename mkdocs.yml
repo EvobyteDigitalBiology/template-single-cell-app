@@ -1,0 +1,42 @@
+# mkdocs.yml
+
+site_name: case-scRNASeq Docs
+
+theme:
+  name: "material"
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annnotation
+    - content.copy
+  language: en
+
+plugins:
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+  - search:
+      lang: en
+
+nav:
+  # - Home: index.md
+  - Django: reference/django.md
+  # - AWS CDK: reference/utils.md
+  # - zihelper.exceptions: reference/exceptions.md
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: github.com
+
+copyright: Copyright &copy; 2024 Jonathan Alles EVOBYTE

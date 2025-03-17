@@ -1,0 +1,45 @@
+name: Django Build and Push Docker Image to AWS ECR
+
+on:
+  push:
+    branches:
+      - dev_cicd
+      - dev
+    paths:
+      - 'django/**'
+env:
+  AWS_REGION: eu-west-1
+  ECR_REPOSITORY_URI: 980624448191.dkr.ecr.eu-west-1.amazonaws.com/case-scrnaseq-django:latest
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        platforms: linux/amd64
+        push: true
+        context: ./django
+        file: ./django/docker/Dockerfile
+        tags: ${{ env.ECR_REPOSITORY_URI }}
+        secrets: |
+          my_env=SECRET_GITHUB_GPH_TOKEN=${{ secrets.SECRET_GITHUB_GPH_TOKEN }}

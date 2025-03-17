@@ -1,0 +1,5 @@
+requests==2.32.3
+python-dotenv==1.0
+pydantic==2.7
+scanpy[leiden]==1.10
+scikit-image==0.24
